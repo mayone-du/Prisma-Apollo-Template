@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "ts-node src/index.ts"
+  },
   "devDependencies": {
     "@types/node": "^16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.3.1",

@@ -11,8 +11,8 @@ model User {
   id       Int      @id @default(autoincrement())
   email    String   @unique
   name     String
-  isAdmin  Boolean
-  isActive Boolean
+  isAdmin  Boolean @default(false)
+  isActive Boolean @default(true)
   profile  Profile?
 }
 
