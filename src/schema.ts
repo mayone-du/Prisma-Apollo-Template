@@ -80,7 +80,7 @@ const UserCreateInput = inputObjectType({
 export const schema = makeSchema({
   types: [Query, Mutation, User, UserUniqueInput, UserCreateInput, SortOrder, DateTime],
   outputs: {
-    schema: __dirname + "/../schema.graphql",
+    schema: __dirname + "/generated/schema.graphql",
     typegen: __dirname + "/generated/nexus.ts",
   },
   contextType: {
