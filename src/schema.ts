@@ -1,9 +1,7 @@
 import {
-  intArg,
   makeSchema,
   nonNull,
   objectType,
-  stringArg,
   inputObjectType,
   arg,
   asNexusMethod,
@@ -19,7 +17,7 @@ const Query = objectType({
   definition(t) {
     t.nonNull.list.nonNull.field("allUsers", {
       type: "User",
-      resolve: (_parent, _args, context: Context) => {
+      resolve: (_parent, _args, context: Context, _info) => {
         return context.prisma.user.findMany();
       },
     });
@@ -56,26 +54,11 @@ const SortOrder = enumType({
   members: ["asc", "desc"],
 });
 
-const PostOrderByUpdatedAtInput = inputObjectType({
-  name: "PostOrderByUpdatedAtInput",
-  definition(t) {
-    t.nonNull.field("updatedAt", { type: "SortOrder" });
-  },
-});
-
 const UserUniqueInput = inputObjectType({
   name: "UserUniqueInput",
   definition(t) {
     t.int("id");
     t.string("email");
-  },
-});
-
-const PostCreateInput = inputObjectType({
-  name: "PostCreateInput",
-  definition(t) {
-    t.nonNull.string("title");
-    t.string("content");
   },
 });
 
@@ -89,17 +72,7 @@ const UserCreateInput = inputObjectType({
 });
 
 export const schema = makeSchema({
-  types: [
-    Query,
-    Mutation,
-    User,
-    UserUniqueInput,
-    UserCreateInput,
-    PostCreateInput,
-    SortOrder,
-    PostOrderByUpdatedAtInput,
-    DateTime,
-  ],
+  types: [Query, Mutation, User, UserUniqueInput, UserCreateInput, SortOrder, DateTime],
   outputs: {
     schema: __dirname + "/../schema.graphql",
     typegen: __dirname + "/generated/nexus.ts",
