@@ -1,6 +1,7 @@
 import { ApolloServer } from "apollo-server";
-import { context } from "src/context";
-import { schema } from "src/schema";
+
+import { context } from "./context";
+import { schema } from "./schema";
 
 const server = new ApolloServer({
   cors: true,

@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "User" (
-    "id" SERIAL NOT NULL,
+    "id" BIGSERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "isAdmin" BOOLEAN NOT NULL DEFAULT false,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
@@ -11,8 +11,8 @@ CREATE TABLE "User" (
 
 -- CreateTable
 CREATE TABLE "Profile" (
-    "id" SERIAL NOT NULL,
-    "userId" INTEGER NOT NULL,
+    "id" BIGSERIAL NOT NULL,
+    "userId" BIGINT NOT NULL,
     "name" TEXT NOT NULL,
     "intro" TEXT NOT NULL,
 

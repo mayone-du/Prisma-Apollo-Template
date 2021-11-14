@@ -29,6 +29,13 @@ const Mutation = objectType({
   definition(t) {
     t.nonNull.field("signupUser", {
       type: "User",
+      resolve: (_parent, args, context: Context, _info) => {
+        return context.prisma.user.create({
+          data: {
+            email: args.data.email,
+          },
+        });
+      },
       args: {
         data: nonNull(
           arg({
@@ -67,7 +74,6 @@ const UserCreateInput = inputObjectType({
   definition(t) {
     t.nonNull.string("email");
     t.string("name");
-    t.list.nonNull.field("posts", { type: "PostCreateInput" });
   },
 });
 
