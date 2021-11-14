@@ -1,4 +1,7 @@
 {
+  "name": "prisma-apollo-template",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "ts-node src/index.ts"
   },
