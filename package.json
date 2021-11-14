@@ -10,8 +10,7 @@
     "apollo-server": "^3.5.0",
     "google-auth-library": "^7.10.2",
     "graphql": "^15.7.2",
-    "graphql-scalars": "^1.13.1",
-    "nexus": "^1.1.0"
+    "graphql-scalars": "^1.13.1"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
@@ -21,6 +20,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "nexus": "^1.1.0",
+    "nexus-prisma": "^0.34.0",
     "prettier": "^2.4.1",
     "prisma": "^3.4.2",
     "ts-node": "^10.4.0",
