@@ -1,14 +1,15 @@
+import { DateTimeResolver } from "graphql-scalars";
 import {
-  makeSchema,
-  nonNull,
-  objectType,
-  inputObjectType,
   arg,
   asNexusMethod,
   enumType,
+  inputObjectType,
+  makeSchema,
+  nonNull,
+  objectType,
 } from "nexus";
-import { DateTimeResolver } from "graphql-scalars";
-import { Context } from "./context";
+
+import type { Context } from "./context";
 
 export const DateTime = asNexusMethod(DateTimeResolver, "date");
 

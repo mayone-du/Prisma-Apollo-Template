@@ -13,7 +13,8 @@ const oAuth2Client = new OAuth2Client(
   process.env.GOOGLE_REDIRECT_URL,
 );
 export const context = async (ctx: ExpressContext) => {
-  oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
+  const tokenInfo = oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
+  if (!tokenInfo) throw Error("No Token");
   return {
     prisma: prisma,
   };
