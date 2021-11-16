@@ -5,6 +5,6 @@ export const userObject = objectType({
   description: "User Object",
   definition(t) {
     t.nonNull.int("id");
-    t.nonNull.string("id");
+    t.nonNull.string("email");
   },
 });
