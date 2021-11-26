@@ -1,1 +1,3 @@
-export * from "src/schema/index";
+// export * from "./mutation";
+export * from "./object";
+export * from "./query";

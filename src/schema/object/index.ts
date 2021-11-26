@@ -1,1 +1,1 @@
-export { userObject } from "src/schema/object/user";
+export { userObject } from "./user";

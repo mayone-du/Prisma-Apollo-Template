@@ -1,11 +1,12 @@
 import { DateTimeResolver } from "graphql-scalars";
 import { asNexusMethod, makeSchema } from "nexus";
-import { userObject } from "src/schema/object";
+
+import * as allTypes from "./schema";
 
 export const DateTime = asNexusMethod(DateTimeResolver, "date");
 
 export const schema = makeSchema({
-  types: [userObject],
+  types: [allTypes],
   outputs: {
     schema: __dirname + "/generated/schema.graphql",
     typegen: __dirname + "/generated/nexus.ts",

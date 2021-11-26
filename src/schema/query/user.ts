@@ -1,10 +1,17 @@
 import { extendType } from "nexus";
-import { User } from "nexus-prisma";
+import { user } from "src/schema/interfaces";
 
 export const userQuery = extendType({
   type: "Query",
   definition(t) {
-    // TODO: 多分全部はだめ $から始まるやつとかはいらないとかスコープ確認
-    for (const value of Object.values(User)) t.field(value);
+    t.field("user", {
+      type: user,
+      args: {
+        id: "Int",
+      },
+      resolve: (_root, args, ctx) => {
+        return ctx.prisma.user.findFirst({ where: { id: args.id } });
+      },
+    });
   },
 });

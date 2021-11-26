@@ -1,7 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import type { ExpressContext } from "apollo-server-express";
 import { OAuth2Client } from "google-auth-library";
-import { GOOGLE_ENV_VARS } from "src/common/envs";
+
+import { GOOGLE_ENV_VARS } from "../src/common/envs";
 
 export type Context = {
   prisma: PrismaClient;
@@ -14,7 +15,9 @@ const oAuth2Client = new OAuth2Client(
   GOOGLE_ENV_VARS.GOOGLE_REDIRECT_URL,
 );
 export const context = async (ctx: ExpressContext) => {
-  const tokenInfo = oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
-  if (!tokenInfo) throw Error("No Token");
+  // const tokenInfo = oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
+  // eslint-disable-next-line no-console
+  // console.log(tokenInfo);
+  // if (!tokenInfo) throw Error("No Token");
   return { prisma };
 };
