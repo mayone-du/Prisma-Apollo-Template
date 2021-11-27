@@ -1,5 +1,5 @@
 import { DateTimeResolver } from "graphql-scalars";
-import { asNexusMethod, makeSchema } from "nexus";
+import { asNexusMethod, connectionPlugin, makeSchema } from "nexus";
 
 import * as types from "./schemas";
 
@@ -23,4 +23,5 @@ export const schema = makeSchema({
       },
     ],
   },
+  plugins: [connectionPlugin()],
 });

@@ -11,10 +11,28 @@ export const userQuery = extendType({
         id: "Int",
       },
       resolve: (_root, args, ctx) => {
-        if (typeof args.id === "number")
-          return ctx.prisma.user.findFirst({ where: { id: args.id } });
-        return ctx.prisma.user.findFirst();
+        return ctx.prisma.user.findFirst({ where: { id: Number(args.id) } });
       },
     });
+
+    // TODO: connection field
+    // t.field("users", {
+    //   type: userObject,
+    //   resolve: (_root, args, ctx) => {
+    //     return ctx.prisma.user.findMany();
+    //   },
+    // });
+
+    // t.connectionField("users", {
+    //   type: userObject,
+    //   resolve: async (_root, args, ctx) => {
+    //     const result = await ctx.prisma.user.findMany({
+    //       // where: {
+    //       //   id: Number(args.id),
+    //       // },
+    //     });
+    //     return result;
+    //   },
+    // });
   },
 });

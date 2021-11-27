@@ -24,11 +24,12 @@ export const userMutation = extendType({
       type: userObject,
       args: { input: nonNull(arg({ type: createUserInput })) },
       resolve: async (_root, args, ctx) => {
-        await ctx.prisma.user.create({
+        const result = await ctx.prisma.user.create({
           data: {
             ...args.input,
           },
         });
+        return result;
       },
     });
 
@@ -37,7 +38,7 @@ export const userMutation = extendType({
       type: userObject,
       args: { input: nonNull(arg({ type: updateUserInput })) },
       resolve: async (_root, args, ctx) => {
-        await ctx.prisma.user.update({
+        const result = await ctx.prisma.user.update({
           where: {
             email: args.input.email,
           },
@@ -45,6 +46,7 @@ export const userMutation = extendType({
             ...args.input,
           },
         });
+        return result;
       },
     });
   },
