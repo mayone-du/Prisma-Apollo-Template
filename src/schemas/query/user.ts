@@ -1,5 +1,6 @@
 import { extendType } from "nexus";
-import { user } from "src/schema/interfaces";
+
+import { user } from "../interfaces";
 
 export const userQuery = extendType({
   type: "Query",
@@ -10,7 +11,8 @@ export const userQuery = extendType({
         id: "Int",
       },
       resolve: (_root, args, ctx) => {
-        return ctx.prisma.user.findFirst({ where: { id: args.id } });
+        if (typeof args.id === "number")
+          return ctx.prisma.user.findFirst({ where: { id: args.id } });
       },
     });
   },
