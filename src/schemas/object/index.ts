@@ -1,1 +1,1 @@
-export { userObject } from "./user";
+export * from "./user";

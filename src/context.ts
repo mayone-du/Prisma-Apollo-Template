@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import type { ExpressContext } from "apollo-server-express";
 import { OAuth2Client } from "google-auth-library";
 
-import { GOOGLE_ENV_VARS } from "../src/common/envs";
+import { GOOGLE_ENV_VARS } from "./constants/envs";
 
 export type Context = {
   prisma: PrismaClient;
