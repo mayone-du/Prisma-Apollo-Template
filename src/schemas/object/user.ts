@@ -6,5 +6,7 @@ export const userObject = objectType({
   description: User.$description,
   definition(t) {
     t.field(User.email);
+    t.field(User.isActive);
+    t.field(User.isAdmin);
   },
 });
