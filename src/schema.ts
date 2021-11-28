@@ -1,14 +1,7 @@
-import {
-  DateTimeResolver,
-  GraphQLBigInt,
-  GraphQLDateTime,
-  GraphQLEmailAddress,
-} from "graphql-scalars";
+import { GraphQLBigInt, GraphQLDateTime, GraphQLEmailAddress } from "graphql-scalars";
 import { asNexusMethod, connectionPlugin, makeSchema } from "nexus";
 
 import * as allTypes from "./schemas";
-
-export const DateTime = asNexusMethod(DateTimeResolver, "date");
 
 export const schema = makeSchema({
   types: [

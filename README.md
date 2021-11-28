@@ -13,3 +13,7 @@ docker-compose up
 ```bash:terminal
 npm run dev
 ```
+
+## メモ
+
+/src/generated/schema.graphql を Apollo Studio が参照している（/src/schema.ts を参照）
