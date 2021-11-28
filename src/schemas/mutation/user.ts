@@ -5,7 +5,10 @@ import { userObject } from "../";
 const createUserInput = inputObjectType({
   name: "CreateUserInput",
   definition: (t) => {
-    t.nonNull.string("email");
+    t.nonNull.string("username");
+    t.nonNull.string("nickname");
+    t.nonNull.email("email");
+    t.nonNull.int("role");
   },
 });
 
@@ -23,8 +26,8 @@ export const userMutation = extendType({
     t.field("createUser", {
       type: userObject,
       args: { input: nonNull(arg({ type: createUserInput })) },
-      resolve: async (_root, args, ctx) => {
-        return await ctx.prisma.user.create({
+      resolve: (_root, args, ctx) => {
+        return ctx.prisma.user.create({
           data: {
             ...args.input,
           },

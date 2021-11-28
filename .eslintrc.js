@@ -34,7 +34,7 @@ module.exports = {
       { selector: ["typeAlias", "typeParameter"], format: ["PascalCase"] },
       {
         selector: ["property", "parameterProperty", "method"],
-        format: ["camelCase"],
+        format: ["camelCase", "UPPER_CASE"],
       },
       {
         selector: "variable",
