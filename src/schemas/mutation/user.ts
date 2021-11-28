@@ -4,14 +4,14 @@ import { userObject } from "../";
 
 const createUserInput = inputObjectType({
   name: "CreateUserInput",
-  definition(t) {
+  definition: (t) => {
     t.nonNull.string("email");
   },
 });
 
 const updateUserInput = inputObjectType({
   name: "UpdateUserInput",
-  definition(t) {
+  definition: (t) => {
     t.nonNull.string("email");
   },
 });
