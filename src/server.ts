@@ -5,8 +5,8 @@ import { schema } from "./schema";
 
 const server = new ApolloServer({
   cors: true,
-  schema: schema,
-  context: context,
+  schema,
+  context,
 });
 
 server.listen().then(async ({ url }) => {

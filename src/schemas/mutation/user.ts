@@ -18,7 +18,7 @@ const updateUserInput = inputObjectType({
 
 export const userMutation = extendType({
   type: "Mutation",
-  definition(t) {
+  definition: (t) => {
     // create
     t.field("createUser", {
       type: userObject,
