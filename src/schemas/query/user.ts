@@ -8,7 +8,7 @@ export const userQuery = extendType({
     t.field("user", {
       type: userObject,
       args: {
-        id: "Int",
+        id: "BigInt",
       },
       resolve: (_root, args, ctx) => {
         return ctx.prisma.user.findFirst({ where: { id: Number(args.id) } });
