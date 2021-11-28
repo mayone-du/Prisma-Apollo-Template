@@ -9,5 +9,6 @@ export const userObject = objectType({
     t.field(User.email);
     t.field(User.isActive);
     t.field(User.isAdmin);
+    t.field(User.createdAt);
   },
 });
