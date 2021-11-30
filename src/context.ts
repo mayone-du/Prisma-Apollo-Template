@@ -15,8 +15,8 @@ const oAuth2Client = new OAuth2Client(
   GOOGLE_ENV_VARS.GOOGLE_REDIRECT_URL,
 );
 export const context = async (ctx: ExpressContext) => {
-  console.log("context");
-  // const tokenInfo = oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
+  const authorization = ctx.req.headers.authorization || "";
+  const tokenInfo = oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
   // eslint-disable-next-line no-console
   // console.log(tokenInfo);
   // if (!tokenInfo) throw Error("No Token");
