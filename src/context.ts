@@ -16,7 +16,8 @@ const oAuth2Client = new OAuth2Client(
 );
 export const context = async (ctx: ExpressContext) => {
   const authorization = ctx.req.headers.authorization || "";
-  const tokenInfo = oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
+  // const tokenInfo = oAuth2Client.getTokenInfo(ctx.req.headers.authorization ?? "");
+
   // eslint-disable-next-line no-console
   // console.log(tokenInfo);
   // if (!tokenInfo) throw Error("No Token");

@@ -10,8 +10,8 @@ export const userQuery = extendType({
       args: {
         id: "BigInt",
       },
-      resolve: (_root, args, ctx) => {
-        return ctx.prisma.user.findFirst({ where: { id: Number(args.id) } });
+      resolve: async (_root, args, ctx) => {
+        return await ctx.prisma.user.findFirst({ where: { id: Number(args.id) } });
       },
     });
 

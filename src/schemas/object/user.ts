@@ -1,23 +1,24 @@
+import { Prisma } from "@prisma/client";
 import { enumType, objectType } from "nexus";
 import { User } from "nexus-prisma";
 
-export const role = enumType({
-  name: "Role",
-  // members: ["ADMIN", "USER", ],
-  members: {
-    ADMIN: 0,
-    USER: 10,
-  },
+// TODO: ここで定義しないとtypeエラーが出る
+// import { allEnum } from "../enum";
+export const enumTypes = Prisma.dmmf.datamodel.enums.map((e) => {
+  return enumType({
+    name: e.name,
+    members: e.values,
+  });
 });
 
-export const status = enumType({
-  name: "Status",
-  members: {
-    ACTIVE: 0,
-    INACTIVE: 10,
-    DELETED: 20,
-  },
-});
+// export const statusEnum = enumType({
+//   name: "StatusEnum",
+//   members: {
+//     ACTIVE: 0,
+//     INACTIVE: 10,
+//     DELETED: 20,
+//   },
+// });
 
 export const userObject = objectType({
   name: User.$name,
@@ -27,11 +28,8 @@ export const userObject = objectType({
     t.field(User.username);
     t.field(User.nickname);
     t.field(User.email);
-    t.field("role", { type: "Role" });
-    t.field("status", { type: "Status" });
-    // t.string("role");
-    // t.field(Role);
-    // t.field("status", { type: user });
+    t.field(User.role.name, { type: "Role" });
+    t.field(User.status.name, { type: "Status" });
     t.field(User.createdAt);
     t.field(User.updatedAt);
   },
