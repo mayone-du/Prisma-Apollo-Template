@@ -2,14 +2,18 @@ import { Prisma } from "@prisma/client";
 import { enumType, objectType } from "nexus";
 import { User } from "nexus-prisma";
 
-// TODO: ここで定義しないとtypeエラーが出る
 // import { allEnum } from "../enum";
+
 export const enumTypes = Prisma.dmmf.datamodel.enums.map((e) => {
   return enumType({
     name: e.name,
     members: e.values,
   });
 });
+
+// const a = allEnum.find((e) => {
+//   return e.name === "Role" || e.name === "Status";
+// });
 
 // export const statusEnum = enumType({
 //   name: "StatusEnum",
