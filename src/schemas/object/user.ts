@@ -1,28 +1,5 @@
-import { Prisma } from "@prisma/client";
-import { enumType, objectType } from "nexus";
+import { objectType } from "nexus";
 import { User } from "nexus-prisma";
-
-// import { allEnum } from "../enum";
-
-export const enumTypes = Prisma.dmmf.datamodel.enums.map((e) => {
-  return enumType({
-    name: e.name,
-    members: e.values,
-  });
-});
-
-// const a = allEnum.find((e) => {
-//   return e.name === "Role" || e.name === "Status";
-// });
-
-// export const statusEnum = enumType({
-//   name: "StatusEnum",
-//   members: {
-//     ACTIVE: 0,
-//     INACTIVE: 10,
-//     DELETED: 20,
-//   },
-// });
 
 export const userObject = objectType({
   name: User.$name,
