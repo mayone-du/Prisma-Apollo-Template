@@ -27,9 +27,9 @@ export const userQuery = extendType({
     //   type: userObject,
     //   resolve: async (_root, args, ctx) => {
     //     const result = await ctx.prisma.user.findMany({
-    //       // where: {
-    //       //   id: Number(args.id),
-    //       // },
+    //       where: {
+    //         id: Number(args.id),
+    //       },
     //     });
     //     return result;
     //   },
